@@ -12,10 +12,11 @@ using JetBrains.ReSharper.UnitTestFramework;
 namespace ReSharperPlugin.TestLinker2.Options
 {
 	[OptionsPage(Id, PageTitle, typeof(TestLinker2ThemedIcons.TestLinker2),
-		ParentId = UnitTestingPages.General,
-		NestingType = OptionPageNestingType.Inline,
-		IsAlignedWithParent = true,
-		Sequence = 0.1d)]
+		ParentId = UnitTestingPages.General
+		//NestingType = OptionPageNestingType.Inline,
+		//IsAlignedWithParent = true,
+		//Sequence = 0.1d
+		)]
 	public class TestLinker2OptionsPage : BeSimpleOptionsPage
 	{
 		private new const string Id = nameof(TestLinker2OptionsPage);
