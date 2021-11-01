@@ -1,6 +1,6 @@
 <idea-plugin require-restart="true">
   <name>Test Linker 2</name>
-  <id>testlinker2-rider</id>
+  <id>com.jetbrains.rider.plugins.testlinker2</id>
   <version>_PLACEHOLDER_</version>
   <vendor url="https://github.com/vladyslav-burylov/resharper-testlinker2">Vladyslav Burylov</vendor>
 
