@@ -8,9 +8,9 @@
   <idea-version since-build="_PLACEHOLDER_" until-build="_PLACEHOLDER_" />
 
   <extensions defaultExtensionNs="com.intellij">
-    <applicationConfigurable groupId="language"
-                             instance="com.jetbrains.rider.plugins.testlinker2.TestLinker2OptionsPage"
-                             id="TestLinker2OptionsPage" />
+    <applicationConfigurable groupId="advanced.settings"
+                             instance="com.jetbrains.rider.plugins.testlinker2.OptionsPage"
+                             id="OptionsPage" />
   </extensions>
 
   <actions>
