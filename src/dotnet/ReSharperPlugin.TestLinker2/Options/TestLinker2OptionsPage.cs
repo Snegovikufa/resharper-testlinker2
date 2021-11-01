@@ -29,31 +29,6 @@ namespace ReSharperPlugin.TestLinker2.Options
 			_lifetime = lifetime;
 
 			AddHeader("Navigation (Test Linker 2)");
-
-			IProperty<string> namingSuffixes = new Property<string>(lifetime, "TestLinker2OptionsPage::NamingSuffixes");
-			namingSuffixes.SetValue(optionsSettingsSmartContext.StoreOptionsTransactionContext.GetValue((TestLinkerSettings key) => key.NamingSuffixes));
-			namingSuffixes.Change.Advise(lifetime, a =>
-			{
-				if (!a.HasNew)
-				{
-					return;
-				}
-
-				optionsSettingsSmartContext.StoreOptionsTransactionContext.SetValue((TestLinkerSettings key) => key.NamingSuffixes, a.New);
-			});
-
-			IProperty<string> typeofAttributeName = new Property<string>(lifetime, "TestLinker2OptionsPage::TypeofAttributeName");
-			typeofAttributeName.SetValue(optionsSettingsSmartContext.StoreOptionsTransactionContext.GetValue((TestLinkerSettings key) => key.TypeofAttributeName));
-			typeofAttributeName.Change.Advise(lifetime, a =>
-			{
-				if (!a.HasNew)
-				{
-					return;
-				}
-
-				optionsSettingsSmartContext.StoreOptionsTransactionContext.SetValue((TestLinkerSettings key) => key.TypeofAttributeName, a.New);
-			});
-
 			AddTextBox((TestLinkerSettings k) => k.NamingSuffixes, "Name suffixes for tests (comma-separated):");
 			AddTextBox((TestLinkerSettings x) => x.TypeofAttributeName, "Attribute name for typeof mentions:");
 		}

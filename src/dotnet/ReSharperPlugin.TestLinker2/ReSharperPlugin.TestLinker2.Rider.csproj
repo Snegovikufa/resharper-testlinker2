@@ -10,7 +10,7 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>ReSharperPlugin.TestLinker2</AssemblyName>
-    <RootNamespace>ReSharperPlugin.TestLinker2</RootNamespace>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
     <IsPackable>false</IsPackable>
     <DefineConstants>$(DefineConstants);RIDER</DefineConstants>
   </PropertyGroup>
@@ -18,26 +18,31 @@
   <ItemGroup>
     <PackageReference Include="JetBrains.Rider.SDK" Version="$(SdkVersion)" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System.Xaml" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup Condition="'$(OS)' != 'Unix'">
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-<!--    <ThemedIconsXamlV3 Include="**\TestLinker2.xaml">-->
-<!--      <ThemeColumns>Color</ThemeColumns>-->
-<!--      <RemoveBackgroundElement>True</RemoveBackgroundElement>-->
-<!--      <SubType>Designer</SubType>-->
-<!--      <Generator>MSBuild:Compile</Generator>-->
-<!--    </ThemedIconsXamlV3>-->
-    <!--<ThemedIconsXamlV3 Include="**\*-graydark.xaml">-->
-    <!--<ThemeColumns>GrayDark</ThemeColumns>-->
-    <!--<RemoveBackgroundElement>True</RemoveBackgroundElement>-->
-    <!--<SubType>Designer</SubType>-->
-    <!--<Generator>MSBuild:Compile</Generator>-->
-    <!--</ThemedIconsXamlV3>-->
-  </ItemGroup>
+  
+  <!-- TODO: uncomment for xaml icons -->
+  <!--<ItemGroup>-->
+  <!--<Reference Include="System.Xaml" />-->
+  <!--<Reference Include="WindowsBase" />-->
+  <!--</ItemGroup>-->
+
+  <!--<ItemGroup>-->
+  <!--<Reference Include="PresentationCore" />-->
+  <!--<Reference Include="PresentationFramework" />-->
+
+  <!--<ThemedIconsXamlV3 Include="**\*-color.xaml">-->
+  <!--<ThemeColumns>Color</ThemeColumns>-->
+  <!--<RemoveBackgroundElement>True</RemoveBackgroundElement>-->
+  <!--<SubType>Designer</SubType>-->
+  <!--<Generator>MSBuild:Compile</Generator>-->
+  <!--</ThemedIconsXamlV3>-->
+  <!--<ThemedIconsXamlV3 Include="**\*-graydark.xaml">-->
+  <!--<ThemeColumns>GrayDark</ThemeColumns>-->
+  <!--<RemoveBackgroundElement>True</RemoveBackgroundElement>-->
+  <!--<SubType>Designer</SubType>-->
+  <!--<Generator>MSBuild:Compile</Generator>-->
+  <!--</ThemedIconsXamlV3>-->
+  <!--</ItemGroup>-->
+  
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
 
 </Project>
