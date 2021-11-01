@@ -2,21 +2,17 @@ using System;
 using System.Linq.Expressions;
 using JetBrains.Application.Settings;
 using JetBrains.Application.UI.Options;
+using JetBrains.Application.UI.Options.OptionPages;
+using JetBrains.Application.UI.Options.Options.ThemedIcons;
 using JetBrains.Application.UI.Options.OptionsDialog;
 using JetBrains.DataFlow;
 using JetBrains.IDE.UI.Extensions;
 using JetBrains.IDE.UI.Options;
 using JetBrains.Lifetimes;
-using JetBrains.ReSharper.UnitTestFramework;
 
 namespace ReSharperPlugin.TestLinker2.Options
 {
-	[OptionsPage(Id, PageTitle, typeof(TestLinker2ThemedIcons.TestLinker2),
-		ParentId = UnitTestingPages.General
-		//NestingType = OptionPageNestingType.Inline,
-		//IsAlignedWithParent = true,
-		//Sequence = 0.1d
-		)]
+	[OptionsPage(Id, PageTitle, typeof(OptionsThemedIcons.EnvironmentGeneral), ParentId = ToolsPage.PID)]
 	public class TestLinker2OptionsPage : BeSimpleOptionsPage
 	{
 		private new const string Id = nameof(TestLinker2OptionsPage);
@@ -34,7 +30,31 @@ namespace ReSharperPlugin.TestLinker2.Options
 
 			AddHeader("Navigation (Test Linker 2)");
 
-			AddTextBox((TestLinkerSettings x) => x.NamingSuffixes, "Name suffixes for tests (comma-separated):");
+			IProperty<string> namingSuffixes = new Property<string>(lifetime, "TestLinker2OptionsPage::NamingSuffixes");
+			namingSuffixes.SetValue(optionsSettingsSmartContext.StoreOptionsTransactionContext.GetValue((TestLinkerSettings key) => key.NamingSuffixes));
+			namingSuffixes.Change.Advise(lifetime, a =>
+			{
+				if (!a.HasNew)
+				{
+					return;
+				}
+
+				optionsSettingsSmartContext.StoreOptionsTransactionContext.SetValue((TestLinkerSettings key) => key.NamingSuffixes, a.New);
+			});
+
+			IProperty<string> typeofAttributeName = new Property<string>(lifetime, "TestLinker2OptionsPage::TypeofAttributeName");
+			typeofAttributeName.SetValue(optionsSettingsSmartContext.StoreOptionsTransactionContext.GetValue((TestLinkerSettings key) => key.TypeofAttributeName));
+			typeofAttributeName.Change.Advise(lifetime, a =>
+			{
+				if (!a.HasNew)
+				{
+					return;
+				}
+
+				optionsSettingsSmartContext.StoreOptionsTransactionContext.SetValue((TestLinkerSettings key) => key.TypeofAttributeName, a.New);
+			});
+
+			AddTextBox((TestLinkerSettings k) => k.NamingSuffixes, "Name suffixes for tests (comma-separated):");
 			AddTextBox((TestLinkerSettings x) => x.TypeofAttributeName, "Attribute name for typeof mentions:");
 		}
 
