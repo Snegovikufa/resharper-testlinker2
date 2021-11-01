@@ -26,6 +26,8 @@ ProjectSection(SolutionItems) = preProject
 	src\rider\main\resources\META-INF\plugin.xml = src\rider\main\resources\META-INF\plugin.xml
 	src\rider\main\resources\META-INF\pluginIcon_dark.svg = src\rider\main\resources\META-INF\pluginIcon_dark.svg
 	src\rider\main\kotlin\com\jetbrains\rider\plugins\testlinker2\GotoLinkedTypes2Action.kt = src\rider\main\kotlin\com\jetbrains\rider\plugins\testlinker2\GotoLinkedTypes2Action.kt
+	src\rider\main\kotlin\com\jetbrains\rider\plugins\testlinker2\OptionsPage.kt = src\rider\main\kotlin\com\jetbrains\rider\plugins\testlinker2\OptionsPage.kt
+	src\rider\main\kotlin\com\jetbrains\rider\plugins\testlinker2\TestLinker2Model.Generated.kt = src\rider\main\kotlin\com\jetbrains\rider\plugins\testlinker2\TestLinker2Model.Generated.kt
 EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "protocol", "protocol", "{8F1ACFC5-CD5D-4C3A-9EE8-E9BA9BE95D5A}"

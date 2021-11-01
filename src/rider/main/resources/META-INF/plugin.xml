@@ -9,8 +9,8 @@
 
   <extensions defaultExtensionNs="com.intellij">
     <applicationConfigurable groupId="advanced.settings"
-                             instance="com.jetbrains.rider.plugins.testlinker2.OptionsPage"
-                             id="OptionsPage" />
+                             instance="com.jetbrains.rider.plugins.testlinker2.TestLinker2OptionsPage"
+                             id="TestLinker2OptionsPage" />
   </extensions>
 
   <actions>
